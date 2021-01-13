@@ -44,4 +44,4 @@
 
 ## 参考
 
-Fluent Setter: [https://github.com/TwinProduction/intellij-fluent-setter-generator]
+Fluent Setter: [https://github.com/TwinProduction/intellij-fluent-setter-generator](https://github.com/TwinProduction/intellij-fluent-setter-generator)
