@@ -1,0 +1,69 @@
+<idea-plugin>
+    <id>github.mengzz.intellij-fluent-tool</id>
+    <name>Fluent Tool</name>
+    <vendor email="863561164@qq.com" url="https://github.com/Mengzuozhu/intellij-fluent-tool">zMz</vendor>
+
+    <description><![CDATA[
+
+    <p><a href="https://github.com/Mengzuozhu/intellij-fluent-tool">GitHub</a></p>
+    <p>The <b>Java Fluent Tool</b> which can help you generate and format the fluent style Java code.</p>
+
+    <br>
+    <img src="https://plugins.jetbrains.com/files/15784/screenshot_e6e616f6-ac48-448a-962a-2ce88e982164"
+    width="700" alt="demo" >
+
+    <br>
+    <p><b>Features</b></p>
+    <p> ● Format the java code in fluent style   </p>
+    <p> ● Generate the fluent called methods   </p>
+    <p> ● Generate the fluent setter for java class    </p>
+    <p> ● Generate the fluent static constructor for java class    </p>
+    <br>
+
+    <br>
+    <p><b>Usage</b></p>
+    <p>Fluent format </p>
+    <p>Select the code -> press <b>Alt+Enter</b> -> select <b>Fluent format</b></p>
+
+    <br>
+    <p>Fluent call </p>
+    <p>Cursor at the end of Java method call -> press <b>Alt+Enter</b> -> select <b>Fluent call</b></p>
+
+    <br>
+    <p>Fluent Setter </p>
+    <p>Open the file of Java class -> press <b>Alt+Insert</b> -> select <b>Fluent Setter</b></p>
+
+    <br>
+    <p>Fluent Static Constructor </p>
+    <p>Open the file of Java class -> press <b>Alt+Insert</b> -> select <b>Fluent Static Constructor</b></p>
+
+    ]]></description>
+
+    <idea-version since-build="182"/>
+
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <intentionAction>
+            <className>github.mengzz.fluent.tool.FluentFormatterAction</className>
+        </intentionAction>
+        <intentionAction>
+            <className>github.mengzz.fluent.tool.FluentCalledAction</className>
+        </intentionAction>
+
+        <applicationConfigurable parentId="tools" instance="github.mengzz.fluent.tool.setting.ui.ConfigGUI"
+                                 id="github.mengzz.intellij-fluent-tool"/>
+        <applicationService serviceImplementation="github.mengzz.fluent.tool.setting.FluentToolSetting"/>
+    </extensions>
+
+    <actions>
+        <action id="github.mengzz.fluent.tool.FluentSetterAction" class="github.mengzz.fluent.tool.FluentSetterAction"
+                text="Fluent Setter">
+            <add-to-group group-id="JavaGenerateGroup1" anchor="before" relative-to-action="GenerateEquals"/>
+        </action>
+        <action id="github.mengzz.fluent.tool.FluentConstructorAction"
+                class="github.mengzz.fluent.tool.FluentConstructorAction" text="Fluent Static Constructoror">
+            <add-to-group group-id="JavaGenerateGroup1" anchor="before" relative-to-action="GenerateEquals"/>
+        </action>
+    </actions>
+</idea-plugin>
