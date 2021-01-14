@@ -1,7 +1,7 @@
 # intellij-fluent-tool(IntelliJ IDEA 插件)
 
 [![](https://img.shields.io/github/v/release/Mengzuozhu/intellij-fluent-tool)](https://github.com/Mengzuozhu/intellij-fluent-tool/releases)
-[![](https://img.shields.io/badge/plugin-FluentTool-purple.svg)](https://plugins.jetbrains.com/plugin/15784-fluent-tool)  
+[![Fluent Tool Plugins](https://img.shields.io/jetbrains/plugin/v/15784-fluent-tool.svg)](https://plugins.jetbrains.com/plugin/15784-fluent-tool)  
 
 <a href="README.md">English Document</a>  
 
