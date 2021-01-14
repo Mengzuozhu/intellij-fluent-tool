@@ -53,7 +53,7 @@ public class FluentSetterAction extends AnAction {
 
     private String buildSetterMethod(PsiField field, PsiClass psiClass, String methodName) {
         String className = psiClass.getName();
-        String generic = PluginUtil.getGenericType(psiClass);
+        String generic = PluginUtil.getGenericText(psiClass);
         if (StringUtils.isNotEmpty(generic)) {
             className += generic;
         }

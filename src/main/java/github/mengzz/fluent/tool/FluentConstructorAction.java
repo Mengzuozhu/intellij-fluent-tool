@@ -69,7 +69,7 @@ public class FluentConstructorAction extends AnAction {
         }
         String constructedParam = JOINER.join(constructedParamNames);
         String inParam = JOINER.join(inParamNames);
-        String generic = PluginUtil.getGenericType(psiClass);
+        String generic = PluginUtil.getGenericText(psiClass);
         if (StringUtils.isNotEmpty(generic)) {
             return buildGenericConstruct(methodName, className, constructedParam, inParam, generic);
         }
