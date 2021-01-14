@@ -14,7 +14,7 @@ The `Java Fluent Tool` is a plugin which can help you generate and format the fl
 
 - Generate the fluent called methods
 
-- Generate the fluent setter for java bean
+- Generate the fluent setter for java bean (similar to `lombok @Accessors`)
 
 - Generate the fluent static constructor for java bean
 
