@@ -10,13 +10,13 @@ The `Java Fluent Tool` is a plugin which can help you generate and format the fl
 
 ## **Features**
 
-- Format the java code in fluent style
+- Format the Java code in fluent style
 
 - Generate the fluent called methods
 
-- Generate the fluent setter for java bean
+- Generate the fluent setter for Java bean
 
-- Generate the fluent static constructor for java bean
+- Generate the fluent static constructor for Java bean
 
 ## Getting Started
 
@@ -40,6 +40,10 @@ Cursor at the code of Java class-> press <kbd>Alt</kbd>+<kbd>Insert</kbd>-> sele
 Cursor at the code of Java class-> press <kbd>Alt</kbd>+<kbd>Insert</kbd>-> select **Fluent Static Constructor**
 
 
+
+## Custom config
+
+![config](https://github.com/Mengzuozhu/intellij-fluent-tool/blob/master/demo/config.jpg)
 
 ## Reference
 
