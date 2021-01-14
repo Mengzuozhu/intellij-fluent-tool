@@ -118,6 +118,17 @@ public class PluginUtil {
     }
 
     /**
+     * Gets generic type.
+     *
+     * @param psiClass the psi class
+     * @return the generic
+     */
+    static String getGenericType(PsiClass psiClass) {
+        PsiTypeParameterList typeParameterList = psiClass.getTypeParameterList();
+        return typeParameterList != null ? typeParameterList.getText() : null;
+    }
+
+    /**
      * Can setter.
      *
      * @param psiField the psi field

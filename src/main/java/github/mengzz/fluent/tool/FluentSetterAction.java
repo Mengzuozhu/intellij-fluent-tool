@@ -4,10 +4,7 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.JavaPsiFacade;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiElementFactory;
-import com.intellij.psi.PsiField;
+import com.intellij.psi.*;
 import github.mengzz.fluent.tool.dialog.SetterMemberDialog;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
@@ -56,6 +53,10 @@ public class FluentSetterAction extends AnAction {
 
     private String buildSetterMethod(PsiField field, PsiClass psiClass, String methodName) {
         String className = psiClass.getName();
+        String generic = PluginUtil.getGenericType(psiClass);
+        if (StringUtils.isNotEmpty(generic)) {
+            className += generic;
+        }
         String fieldName = field.getName();
         String presentableText = field.getType().getPresentableText();
         return String.format("public %s %s(%s %s) {" +

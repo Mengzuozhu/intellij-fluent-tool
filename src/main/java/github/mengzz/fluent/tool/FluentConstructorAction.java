@@ -7,14 +7,11 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
 import github.mengzz.fluent.tool.dialog.ConstructorMemberDialog;
-import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * The type Fluent constructor action.
@@ -72,7 +69,7 @@ public class FluentConstructorAction extends AnAction {
         }
         String constructedParam = JOINER.join(constructedParamNames);
         String inParam = JOINER.join(inParamNames);
-        String generic = getGeneric(psiClass);
+        String generic = PluginUtil.getGenericType(psiClass);
         if (StringUtils.isNotEmpty(generic)) {
             return buildGenericConstruct(methodName, className, constructedParam, inParam, generic);
         }
@@ -88,16 +85,6 @@ public class FluentConstructorAction extends AnAction {
                         "return new %s<>(%s);" +
                         "}", generic, className, generic, methodName, inParam,
                 className, constructedParam);
-    }
-
-    private String getGeneric(PsiClass psiClass) {
-        PsiTypeParameter[] typeParameters = psiClass.getTypeParameters();
-        if (ArrayUtils.isNotEmpty(typeParameters)) {
-            return Arrays.stream(typeParameters)
-                    .map(PsiTypeParameter::getName)
-                    .collect(Collectors.joining(COMMA, "<", ">"));
-        }
-        return null;
     }
 
 }
