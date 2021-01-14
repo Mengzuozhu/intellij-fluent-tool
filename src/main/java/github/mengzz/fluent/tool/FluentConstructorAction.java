@@ -6,7 +6,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.*;
-import com.intellij.psi.impl.source.PsiClassReferenceType;
 import github.mengzz.fluent.tool.dialog.ConstructorMemberDialog;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -62,14 +61,13 @@ public class FluentConstructorAction extends AnAction {
         List<String> inParamNames = new ArrayList<>();
         for (PsiParameter parameter : parameters) {
             PsiIdentifier nameIdentifier = parameter.getNameIdentifier();
-            PsiClassReferenceType referenceType = PluginUtil.convertAs(parameter.getType(),
-                    PsiClassReferenceType.class);
-            if (nameIdentifier == null || referenceType == null) {
+            if (nameIdentifier == null) {
                 continue;
             }
             String text = nameIdentifier.getText();
             constructedParamNames.add(text);
-            String classAndName = String.format("%s %s", referenceType.getClassName(), text);
+            PsiType psiType = parameter.getType();
+            String classAndName = String.format("%s %s", psiType.getPresentableText(), text);
             inParamNames.add(classAndName);
         }
         String constructedParam = JOINER.join(constructedParamNames);
