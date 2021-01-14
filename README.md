@@ -22,22 +22,22 @@ The `Java Fluent Tool` is a plugin which can help you generate and format the fl
 
 #### Fluent format
 
-Select the code -> press <kbd>Alt</kbd>+<kbd>Enter</kbd> -> select **Fluent format**
+Select the Java code  >  <kbd>Alt</kbd>+<kbd>Enter</kbd>  > select **Fluent format**
 
 
 #### Fluent call
 
-Cursor at the end of Java method call -> press <kbd>Alt</kbd>+<kbd>Enter</kbd>-> select **Fluent call**
+Cursor at the end of Java method call  >  <kbd>Alt</kbd>+<kbd>Enter</kbd> > select **Fluent call**
 
 
 #### Fluent Setter
 
-Cursor at the code of Java class-> press <kbd>Alt</kbd>+<kbd>Insert</kbd>-> select **Fluent Setter**
+In your Java class file >  <kbd>Alt</kbd>+<kbd>Insert</kbd> > select **Fluent Setter**
 
 
 #### Fluent Static Constructor
 
-Cursor at the code of Java class-> press <kbd>Alt</kbd>+<kbd>Insert</kbd>-> select **Fluent Static Constructor**
+In your Java class file >  <kbd>Alt</kbd>+<kbd>Insert</kbd> > select **Fluent Static Constructor**
 
 
 
