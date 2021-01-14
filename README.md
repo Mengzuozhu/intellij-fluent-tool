@@ -4,7 +4,7 @@
 
 <a href="README-CH.md">中文文档</a>
 
-The `Java Fluent Tool` is a IntelliJ Plugin which can help you generate and format the fluent style Java code.
+The `Java Fluent Tool` is the IntelliJ Plugin which can help you generate and format the fluent style Java code.
 
 ![useDemo](https://github.com/Mengzuozhu/intellij-fluent-tool/blob/master/demo/useDemo.gif)
 
