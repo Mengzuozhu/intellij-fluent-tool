@@ -41,7 +41,7 @@ Cursor at the code of Java class-> press <kbd>Alt</kbd>+<kbd>Insert</kbd>-> sele
 
 
 
-## Custom config
+## Custom Config
 
 ![config](https://github.com/Mengzuozhu/intellij-fluent-tool/blob/master/demo/config.jpg)
 
