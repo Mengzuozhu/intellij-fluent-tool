@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * @author zuozhu.meng
  */
 public class CalledMemberDialog extends ListMemberDialog<PsiMethod> {
-    private static final String DEPRECATED_ANNOTATION = "java.lang.Deprecated";
+    private static final String DEPRECATED_ANNOTATION = Deprecated.class.getCanonicalName();
     private static final String TITLE = "Select Called Methods";
     private static final String LABEL = "Ignore Deprecated";
 
