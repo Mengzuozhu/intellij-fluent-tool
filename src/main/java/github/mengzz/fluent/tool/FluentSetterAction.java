@@ -4,11 +4,15 @@ import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.project.Project;
-import com.intellij.psi.*;
+import com.intellij.psi.JavaPsiFacade;
+import com.intellij.psi.PsiClass;
+import com.intellij.psi.PsiElementFactory;
+import com.intellij.psi.PsiField;
 import github.mengzz.fluent.tool.dialog.SetterMemberDialog;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
+import java.text.MessageFormat;
 import java.util.List;
 import java.util.Set;
 
@@ -59,10 +63,8 @@ public class FluentSetterAction extends AnAction {
         }
         String fieldName = field.getName();
         String presentableText = field.getType().getPresentableText();
-        return String.format("public %s %s(%s %s) {" +
-                "this.%s = %s;" +
-                "return this;" +
-                "}", className, methodName, presentableText, fieldName, fieldName, fieldName);
+        return MessageFormat.format("public {0} {1}({2} {3}) '{'this.{3} = {3};return this;'}'",
+                className, methodName, presentableText, fieldName);
     }
 
     private String buildMethodName(PsiField field, String prefix) {

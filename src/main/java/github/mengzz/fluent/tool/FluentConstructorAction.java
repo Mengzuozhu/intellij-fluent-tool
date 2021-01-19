@@ -10,6 +10,7 @@ import github.mengzz.fluent.tool.dialog.ConstructorMemberDialog;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,18 +74,14 @@ public class FluentConstructorAction extends AnAction {
         if (StringUtils.isNotEmpty(generic)) {
             return buildGenericConstruct(methodName, className, constructedParam, inParam, generic);
         }
-        return String.format("public static %s %s(%s) {" +
-                        "return new %s(%s);" +
-                        "}", className, methodName, inParam,
-                className, constructedParam);
+        return MessageFormat.format("public static {0} {1}({2}) '{'return new {0}({3});'}'",
+                className, methodName, inParam, constructedParam);
     }
 
     private String buildGenericConstruct(String methodName, String className, String constructedParam, String inParam,
                                          String generic) {
-        return String.format("public static %s %s%s %s(%s) {" +
-                        "return new %s<>(%s);" +
-                        "}", generic, className, generic, methodName, inParam,
-                className, constructedParam);
+        return MessageFormat.format("public static {0} {1}{0} {2}({3}) '{'return new {1}<>({4});'}'",
+                generic, className, methodName, inParam, constructedParam);
     }
 
 }
