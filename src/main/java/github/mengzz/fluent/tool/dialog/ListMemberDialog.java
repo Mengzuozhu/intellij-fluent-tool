@@ -8,10 +8,14 @@ import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.text.StringUtil;
+import com.intellij.psi.PsiElement;
 import com.intellij.ui.CollectionListModel;
+import com.intellij.ui.ListSpeedSearch;
 import com.intellij.ui.ToolbarDecorator;
 import com.intellij.ui.components.JBList;
 import com.intellij.ui.components.panels.VerticalLayout;
+import com.intellij.util.Function;
+import github.mengzz.fluent.tool.PluginUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -110,10 +114,27 @@ public class ListMemberDialog<T extends NavigationItem> extends DialogWrapper {
     private JPanel buildListModelPanel(List<T> members) {
         listModel = new CollectionListModel<>(members);
         jFieldList = new JBList<>(listModel);
-        jFieldList.setCellRenderer(new DefaultPsiElementCellRenderer());
+        jFieldList.setCellRenderer(getCellRenderer());
         ToolbarDecorator decorator = ToolbarDecorator.createDecorator(jFieldList)
                 .disableAddAction();
+        addListSpeedSearch(jFieldList);
         return decorator.createPanel();
+    }
+
+    @NotNull
+    private DefaultPsiElementCellRenderer getCellRenderer() {
+        return new DefaultPsiElementCellRenderer();
+    }
+
+    private void addListSpeedSearch(JBList<T> jFieldList) {
+        DefaultPsiElementCellRenderer cellRenderer = getCellRenderer();
+        new ListSpeedSearch<>(jFieldList, (Function<Object, String>) obj -> {
+            PsiElement element = PluginUtil.convertAs(obj, PsiElement.class);
+            if (element != null) {
+                return cellRenderer.getElementText(element);
+            }
+            return obj.toString();
+        });
     }
 
     private class SortListAction extends ToggleAction {
