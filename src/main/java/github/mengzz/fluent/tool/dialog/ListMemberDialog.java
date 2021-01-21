@@ -3,12 +3,12 @@ package github.mengzz.fluent.tool.dialog;
 import com.intellij.icons.AllIcons;
 import com.intellij.ide.IdeBundle;
 import com.intellij.ide.util.DefaultPsiElementCellRenderer;
-import com.intellij.navigation.NavigationItem;
 import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiNamedElement;
 import com.intellij.ui.CollectionListModel;
 import com.intellij.ui.ListSpeedSearch;
 import com.intellij.ui.ToolbarDecorator;
@@ -33,7 +33,7 @@ import java.util.List;
  * @param <T> the type parameter
  * @author zuozhu.meng
  */
-public class ListMemberDialog<T extends NavigationItem> extends DialogWrapper {
+public class ListMemberDialog<T extends PsiNamedElement> extends DialogWrapper {
     protected final List<T> members;
     private JPanel mainPanel = new JPanel();
     private JBList<T> jFieldList;

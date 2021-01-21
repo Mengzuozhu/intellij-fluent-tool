@@ -1,8 +1,8 @@
 package github.mengzz.fluent.tool.dialog;
 
-import com.intellij.navigation.NavigationItem;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.LabeledComponent;
+import com.intellij.psi.PsiNamedElement;
 import com.intellij.ui.components.JBTextField;
 import github.mengzz.fluent.tool.setting.FluentToolSetting;
 import org.jetbrains.annotations.NotNull;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * @author zuozhu.meng
  */
-public class SetterMemberDialog<T extends NavigationItem> extends ListMemberDialog<T> {
+public class SetterMemberDialog<T extends PsiNamedElement> extends ListMemberDialog<T> {
     private static final String TITLE = "Fluent Setter Fields";
     private static final String PREFIX_LABEL = "Method Prefix";
     private JBTextField prefixField;
