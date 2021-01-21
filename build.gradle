@@ -31,4 +31,11 @@ intellij {
     updateSinceUntilBuild false
 }
 patchPluginXml {
+    changeNotes """
+      <b>1.3</b> <br>
+      <em> ● Support search in list dialog</em><br>
+      <br>
+      
+      <br>"""
+
 }
