@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * The type Called member dialog.
  *
- * @author zuozhu.meng
+ * @author mengzz
  */
 public class CalledMemberDialog extends ListMemberDialog<PsiMethod> {
     private static final String DEPRECATED_ANNOTATION = Deprecated.class.getCanonicalName();

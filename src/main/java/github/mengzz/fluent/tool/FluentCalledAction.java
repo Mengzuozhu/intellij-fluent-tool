@@ -40,7 +40,7 @@ import java.util.stream.Collectors;
 /**
  * The type Fluent call action.
  *
- * @author zuozhu.meng
+ * @author mengzz
  */
 public class FluentCalledAction extends BaseElementAtCaretIntentionAction {
     private static final String BUILD = "build";

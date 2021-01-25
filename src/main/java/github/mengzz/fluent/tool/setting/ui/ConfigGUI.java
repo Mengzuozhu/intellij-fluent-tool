@@ -12,17 +12,23 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ * The type Config gui.
+ *
  * @author mengzz
- **/
+ */
 public class ConfigGUI extends JPanel implements SearchableConfigurable {
     private static final String DISPLAY_NAME = "Fluent Tool";
     private FluentToolSetting settings;
+
     private JPanel mainPanel;
-    private JTextField fluentConstructNameText;
-    private JTextField fluentSetterPrefixText;
     private JPanel fluentStaticConstructPanel;
     private JPanel fluentSetterPanel;
     private JPanel fluentCallPanel;
+    private JPanel fluentMethodPanel;
+
+    private JTextField fluentConstructNameText;
+    private JTextField fluentSetterPrefixText;
+    private JTextField fluentMethodNameText;
     private JCheckBox addBuildMethodIfExistCheck;
 
     public ConfigGUI() {
@@ -42,6 +48,7 @@ public class ConfigGUI extends JPanel implements SearchableConfigurable {
     public boolean isModified() {
         boolean modified = isTextModified(fluentConstructNameText, settings.getConstructMethodName());
         modified = modified || isTextModified(fluentSetterPrefixText, settings.getFluentSetterPrefix());
+        modified = modified || isTextModified(fluentMethodNameText, settings.getFluentMethodName());
         modified = modified || addBuildMethodIfExistCheck.isSelected() != settings.isAddBuildMethodIfExist();
         return modified;
     }
@@ -50,6 +57,7 @@ public class ConfigGUI extends JPanel implements SearchableConfigurable {
     public void apply() {
         settings.setConstructMethodName(fluentConstructNameText.getText());
         settings.setFluentSetterPrefix(fluentSetterPrefixText.getText());
+        settings.setFluentMethodName(fluentMethodNameText.getText());
         settings.setAddBuildMethodIfExist(addBuildMethodIfExistCheck.isSelected());
     }
 
@@ -57,6 +65,7 @@ public class ConfigGUI extends JPanel implements SearchableConfigurable {
     public void reset() {
         fluentConstructNameText.setText(settings.getConstructMethodName());
         fluentSetterPrefixText.setText(settings.getFluentSetterPrefix());
+        fluentMethodNameText.setText(settings.getFluentMethodName());
         addBuildMethodIfExistCheck.setSelected(settings.isAddBuildMethodIfExist());
     }
 
@@ -77,6 +86,7 @@ public class ConfigGUI extends JPanel implements SearchableConfigurable {
     private void setBorder() {
         fluentStaticConstructPanel.setBorder(IdeBorderFactory.createTitledBorder("Fluent Static Constructor", false));
         fluentSetterPanel.setBorder(IdeBorderFactory.createTitledBorder("Fluent Setter", false));
+        fluentMethodPanel.setBorder(IdeBorderFactory.createTitledBorder("Fluent Method", false));
         fluentCallPanel.setBorder(IdeBorderFactory.createTitledBorder(FluentToolConstant.FLUENT_CALL, false));
     }
 

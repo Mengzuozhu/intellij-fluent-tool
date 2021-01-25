@@ -22,7 +22,7 @@ import java.util.stream.StreamSupport;
 /**
  * The type Fluent formatter action.
  *
- * @author zuozhu.meng
+ * @author mengzz
  */
 public class FluentFormatterAction extends BaseElementAtCaretIntentionAction {
     private static final int DOT_LIMIT = 2;

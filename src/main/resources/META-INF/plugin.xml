@@ -18,6 +18,7 @@
     <p> ● Generate the fluent called methods   </p>
     <p> ● Generate the fluent setter for Java class    </p>
     <p> ● Generate the fluent static constructor for Java class    </p>
+    <p> ● Generate the fluent method template for Java class    </p>
     <br>
 
     <br>
@@ -36,6 +37,10 @@
     <br>
     <p>Fluent Static Constructor </p>
     <p>Open the file of Java class -> press <b>Alt+Insert</b> -> select <b>Fluent Static Constructor</b></p>
+
+    <br>
+    <p>Fluent Method </p>
+    <p>Open the file of Java class -> press <b>Alt+Insert</b> -> select <b>Fluent Method</b></p>
 
     ]]></description>
 
@@ -63,6 +68,10 @@
         </action>
         <action id="github.mengzz.fluent.tool.FluentConstructorAction"
                 class="github.mengzz.fluent.tool.FluentConstructorAction" text="Fluent Static Constructoror">
+            <add-to-group group-id="JavaGenerateGroup1" anchor="before" relative-to-action="GenerateEquals"/>
+        </action>
+        <action id="github.mengzz.fluent.tool.FluentMethodAction" class="github.mengzz.fluent.tool.FluentMethodAction"
+                text="Fluent Method">
             <add-to-group group-id="JavaGenerateGroup1" anchor="before" relative-to-action="GenerateEquals"/>
         </action>
     </actions>

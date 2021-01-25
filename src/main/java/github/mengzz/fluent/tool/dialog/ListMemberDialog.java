@@ -31,7 +31,7 @@ import java.util.List;
  * The type List member dialog.
  *
  * @param <T> the type parameter
- * @author zuozhu.meng
+ * @author mengzz
  */
 public class ListMemberDialog<T extends PsiNamedElement> extends DialogWrapper {
     protected final List<T> members;

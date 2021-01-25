@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * @author zuozhu.meng
+ * @author mengzz
  */
 @State(name = "github.mengzz.fluent.tool.setting.FluentToolSettings",
         storages = {@Storage("intellij-fluent-tool.xml")}
@@ -22,9 +22,18 @@ public class FluentToolSetting implements PersistentStateComponent<FluentToolSet
     private String constructMethodName = "of";
     private String fluentSetterPrefix;
     private boolean addBuildMethodIfExist = true;
+    private String fluentMethodName = "with";
 
     public static FluentToolSetting getInstance() {
         return ServiceManager.getService(FluentToolSetting.class);
+    }
+
+    public String getFluentMethodName() {
+        return fluentMethodName;
+    }
+
+    public void setFluentMethodName(String fluentMethodName) {
+        this.fluentMethodName = fluentMethodName;
     }
 
     public boolean isAddBuildMethodIfExist() {

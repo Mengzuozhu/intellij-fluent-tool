@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 
 /**
- * @author zuozhu.meng
+ * @author mengzz
  */
 public class ConstructorMemberDialog<T extends PsiNamedElement> extends ListMemberDialog<T> {
     private static final String TITLE = "Fluent Static Constructor Methods";

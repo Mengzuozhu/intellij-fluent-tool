@@ -34,6 +34,7 @@ patchPluginXml {
     changeNotes """
       <b>1.3</b> <br>
       <em> ● Support search in list dialog</em><br>
+      <em> ● Add 'Fluent Method'</em><br>
       <br>
       
       <br>"""

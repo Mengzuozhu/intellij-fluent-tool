@@ -12,7 +12,7 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 
 /**
- * @author zuozhu.meng
+ * @author mengzz
  */
 public class SetterMemberDialog<T extends PsiNamedElement> extends ListMemberDialog<T> {
     private static final String TITLE = "Fluent Setter Fields";
