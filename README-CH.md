@@ -15,32 +15,29 @@
 - 一键生成流式方法调用代码
 - 一键生成Java流式setter代码
 - 一键生成Java流式静态构造代码
+- 一键生成Java流式方法模板
 
 ## 使用
 
 #### Fluent format
 
-1. 选中需格式化的代码
-2. 按下快捷键<kbd>Alt</kbd>+<kbd>Enter</kbd>
-3. 选择`Fluent format`
+选中需格式化的代码 > 按下快捷键<kbd>Alt</kbd>+<kbd>Enter</kbd> > 选择`Fluent format`
 
 #### Fluent call
 
-1. 光标移到Java方法调用的末尾
-2. 按下快捷键<kbd>Alt</kbd>+<kbd>Enter</kbd>
-3. 选择`Fluent build`
+光标移到Java方法调用的末尾 > 按下快捷键<kbd>Alt</kbd>+<kbd>Enter</kbd> > 选择`Fluent call`
 
 #### Fluent Setter
 
-1. 打开Java类所在文件
-2. 按下快捷键<kbd>Alt</kbd>+<kbd>Insert</kbd>
-3. 选择`Fluent Setter`
+打开Java类所在文件 > 按下快捷键<kbd>Alt</kbd>+<kbd>Insert</kbd> > 选择`Fluent Setter`
 
 #### Fluent Static Constructor
 
-1. 打开Java类所在文件
-2. 按下快捷键<kbd>Alt</kbd>+<kbd>Insert</kbd>
-3. 选择`Fluent Static Constructor`
+打开Java类所在文件 > 按下快捷键<kbd>Alt</kbd>+<kbd>Insert</kbd> > 选择`Fluent Static Constructor`
+
+#### Fluent Method
+
+打开Java类所在文件 > 按下快捷键<kbd>Alt</kbd>+<kbd>Insert</kbd> > 选择`Fluent Method`
 
 ## 参考
 

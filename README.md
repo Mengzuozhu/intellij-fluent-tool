@@ -11,12 +11,10 @@
 ## **Features**
 
 - Format the Java code in fluent style
-
 - Generate the fluent called methods
-
 - Generate the fluent setter for Java bean (similar to `lombok @Accessors`)
-
 - Generate the fluent static constructor for Java bean
+- Generate the fluent method template for Java class
 
 ## Getting Started
 
@@ -38,6 +36,10 @@ In your Java class file >  <kbd>Alt</kbd>+<kbd>Insert</kbd> > select **Fluent Se
 #### Fluent Static Constructor
 
 In your Java class file >  <kbd>Alt</kbd>+<kbd>Insert</kbd> > select **Fluent Static Constructor**
+
+#### Fluent Method
+
+In your Java class file >  <kbd>Alt</kbd>+<kbd>Insert</kbd> > select **Fluent Method**
 
 
 
