@@ -68,9 +68,9 @@ public class FluentConstructorAction extends AnAction {
             String text = nameIdentifier.getText();
             constructedParamNames.add(text);
             PsiType psiType = parameter.getType();
-            String classAndName = MessageFormat.format("{0} {1}", psiType.getPresentableText(), text);
-            classAndName = fillAnnotationsIfNeed(parameter, classAndName);
-            inParamNames.add(classAndName);
+            String typeAndName = MessageFormat.format("{0} {1}", psiType.getPresentableText(), text);
+            typeAndName = fillAnnotationsIfNeed(parameter, typeAndName);
+            inParamNames.add(typeAndName);
         }
         String constructedParam = JOINER.join(constructedParamNames);
         String inParam = JOINER.join(inParamNames);
@@ -82,16 +82,16 @@ public class FluentConstructorAction extends AnAction {
                 className, methodName, inParam, constructedParam);
     }
 
-    private String fillAnnotationsIfNeed(PsiParameter parameter, String classAndName) {
+    private String fillAnnotationsIfNeed(PsiParameter parameter, String typeAndName) {
         PsiAnnotation[] annotations = parameter.getAnnotations();
         if (annotations.length > 0) {
             String annotationStr = Arrays.stream(annotations)
                     .map(PsiAnnotation::getQualifiedName)
                     .map(name -> ANNOTATION_PREFIX + name)
                     .collect(Collectors.joining(" "));
-            return MessageFormat.format("{0} {1}", annotationStr, classAndName);
+            return MessageFormat.format("{0} {1}", annotationStr, typeAndName);
         }
-        return classAndName;
+        return typeAndName;
     }
 
     private String buildGenericConstruct(String methodName, String className, String constructedParam, String inParam,
