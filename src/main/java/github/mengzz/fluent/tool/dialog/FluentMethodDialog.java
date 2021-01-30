@@ -36,6 +36,11 @@ public class FluentMethodDialog extends DialogWrapper {
         return getPrefixComponent();
     }
 
+    @Override
+    public @Nullable JComponent getPreferredFocusedComponent() {
+        return methodNameField;
+    }
+
     @NotNull
     private JComponent getPrefixComponent() {
         methodNameField = new JBTextField(FluentToolSetting.getInstance().getFluentMethodName());
