@@ -111,6 +111,7 @@ public class ListMemberDialog<T extends PsiNamedElement> extends DialogWrapper {
         return ActionManager.getInstance().createActionToolbar("ListMemberDialog", group, true).getComponent();
     }
 
+    @SuppressWarnings("unchecked")
     private JPanel buildListModelPanel(List<T> members) {
         listModel = new CollectionListModel<>(members);
         jFieldList = new JBList<>(listModel);
