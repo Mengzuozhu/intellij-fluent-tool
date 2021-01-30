@@ -37,6 +37,10 @@ patchPluginXml {
       <em> ● Add 'Fluent Method'</em><br>
       <br>
       
+      <b>1.4</b> <br>
+      <em> ● Fluent Constructor support annotations</em><br>
+      <br>
+      
       <br>"""
 
 }
