@@ -12,7 +12,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * The type Fluent constructor action.
@@ -22,6 +24,7 @@ import java.util.List;
 public class FluentConstructorAction extends AnAction {
     private static final String COMMA = ", ";
     private static final Joiner JOINER = Joiner.on(COMMA);
+    private static final String ANNOTATION_PREFIX = "@";
 
     @Override
     public void update(@NotNull AnActionEvent e) {
@@ -65,7 +68,8 @@ public class FluentConstructorAction extends AnAction {
             String text = nameIdentifier.getText();
             constructedParamNames.add(text);
             PsiType psiType = parameter.getType();
-            String classAndName = String.format("%s %s", psiType.getPresentableText(), text);
+            String classAndName = MessageFormat.format("{0} {1}", psiType.getPresentableText(), text);
+            classAndName = fillAnnotationsIfNeed(parameter, classAndName);
             inParamNames.add(classAndName);
         }
         String constructedParam = JOINER.join(constructedParamNames);
@@ -76,6 +80,18 @@ public class FluentConstructorAction extends AnAction {
         }
         return MessageFormat.format("public static {0} {1}({2}) '{'return new {0}({3});'}'",
                 className, methodName, inParam, constructedParam);
+    }
+
+    private String fillAnnotationsIfNeed(PsiParameter parameter, String classAndName) {
+        PsiAnnotation[] annotations = parameter.getAnnotations();
+        if (annotations.length > 0) {
+            String annotationStr = Arrays.stream(annotations)
+                    .map(PsiAnnotation::getQualifiedName)
+                    .map(name -> ANNOTATION_PREFIX + name)
+                    .collect(Collectors.joining(" "));
+            return MessageFormat.format("{0} {1}", annotationStr, classAndName);
+        }
+        return classAndName;
     }
 
     private String buildGenericConstruct(String methodName, String className, String constructedParam, String inParam,
