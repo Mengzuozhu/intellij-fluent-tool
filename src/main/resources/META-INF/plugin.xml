@@ -6,7 +6,7 @@
     <description><![CDATA[
 
     <p><a href="https://github.com/Mengzuozhu/intellij-fluent-tool">GitHub</a></p>
-    <p>The <b>Java Fluent Tool</b> can help you generate and format the fluent style Java code.</p>
+    <p>Help you to generate and format the Java fluent method, setter and constructor code.</p>
 
     <br>
     <img src="https://plugins.jetbrains.com/files/15784/screenshot_e6e616f6-ac48-448a-962a-2ce88e982164"
