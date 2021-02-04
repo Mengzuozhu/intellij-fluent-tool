@@ -4,7 +4,8 @@
 
 <a href="README-CH.md">中文文档</a>
 
-:basketball:  The `Java Fluent Tool` is a plugin which can help you generate and format the fluent style Java code.
+:basketball:  The `Fluent Tool` is a plugin that can help you to generate and format the Java fluent method, 
+setter and constructor code.
 
 ![useDemo](https://github.com/Mengzuozhu/intellij-fluent-tool/blob/master/demo/useDemo.gif)
 

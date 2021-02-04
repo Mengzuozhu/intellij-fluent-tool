@@ -5,7 +5,7 @@
 
 <a href="README.md">English Document</a>  
 
-一款帮你设计和写出**Java流式风格代码**的IntelliJ插件，你值得拥有！
+一款帮你设计和生成**Java流式风格方法与构造器代码**的IntelliJ插件，你值得拥有！
 
 ![useDemo](https://github.com/Mengzuozhu/intellij-fluent-tool/blob/master/demo/useDemo.gif)
 
