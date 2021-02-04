@@ -38,7 +38,7 @@ patchPluginXml {
       <br>
       
       <b>1.4</b> <br>
-      <em> ● Fluent Constructor support annotations</em><br>
+      <em> ● Support annotations in 'Fluent Constructor'</em><br>
       <br>
       
       <br>"""
