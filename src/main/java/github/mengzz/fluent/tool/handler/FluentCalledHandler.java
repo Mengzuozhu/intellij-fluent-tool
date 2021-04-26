@@ -15,7 +15,7 @@ import java.util.Map;
  **/
 public class FluentCalledHandler {
     private static final String BUILD_METHOD_NAME = "build";
-    private static final String DEFAULT_PARAM = "()";
+    private static final String EMPTY_PARAM = "()";
     private static Map<String, String> typeAndDefaultValue = new HashMap<String, String>() {
         {
             put("byte", "(byte)0");
@@ -32,7 +32,7 @@ public class FluentCalledHandler {
     public StringBuilder buildCalledMethod(PsiClass psiClass, List<PsiMethod> members, boolean withDefaultValue) {
         StringBuilder builder = new StringBuilder();
         for (PsiMethod psiMethod : members) {
-            String param = DEFAULT_PARAM;
+            String param = EMPTY_PARAM;
             if (withDefaultValue && isContainBuildMethod(psiClass)) {
                 param = buildParameter(psiMethod);
             }
@@ -45,7 +45,7 @@ public class FluentCalledHandler {
     }
 
     private String buildParameter(PsiMethod psiMethod) {
-        String param = DEFAULT_PARAM;
+        String param = EMPTY_PARAM;
         PsiParameter[] parameters = psiMethod.getParameterList().getParameters();
         if (parameters.length == 1) {
             String type = parameters[0].getType().getCanonicalText();
