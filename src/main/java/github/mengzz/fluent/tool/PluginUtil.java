@@ -30,10 +30,7 @@ public class PluginUtil {
      * @return the t
      */
     public static <T> T convertAs(Object obj, Class<T> cls) {
-        if (cls.isInstance(obj)) {
-            return cls.cast(obj);
-        }
-        return null;
+        return cls.isInstance(obj) ? cls.cast(obj) : null;
     }
 
     /**
@@ -126,6 +123,16 @@ public class PluginUtil {
     static String getGenericText(PsiClass psiClass) {
         PsiTypeParameterList typeParameterList = psiClass.getTypeParameterList();
         return typeParameterList != null ? typeParameterList.getText() : null;
+    }
+
+    /**
+     * Is static method.
+     *
+     * @param psiMethod the psi method
+     * @return the boolean
+     */
+    static boolean isStaticMethod(PsiMethod psiMethod) {
+        return psiMethod.hasModifierProperty(PsiModifier.STATIC);
     }
 
     /**

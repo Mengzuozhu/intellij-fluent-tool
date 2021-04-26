@@ -43,7 +43,7 @@ import java.util.stream.Collectors;
  * @author mengzz
  */
 public class FluentCalledAction extends BaseElementAtCaretIntentionAction {
-    private static final String BUILD = "build";
+    private static final String BUILD_METHOD_NAME = "build";
     private static final String SEMICOLON = ";";
 
     @NotNull
@@ -144,7 +144,7 @@ public class FluentCalledAction extends BaseElementAtCaretIntentionAction {
         }
         // ignore static method
         return Arrays.stream(psiClass.getMethods())
-                .filter(psiMethod -> !isStaticMethod(psiMethod)
+                .filter(psiMethod -> !PluginUtil.isStaticMethod(psiMethod)
                         && PluginUtil.isConvertibleFrom(psiType, psiMethod.getReturnType()))
                 .collect(Collectors.toList());
     }
@@ -162,15 +162,11 @@ public class FluentCalledAction extends BaseElementAtCaretIntentionAction {
     private void addBuildMethodIfNeed(PsiClass psiClass, StringBuilder builder) {
         if (FluentToolSetting.getInstance().isAddBuildMethodIfExist()) {
             boolean containBuild = Arrays.stream(psiClass.getMethods())
-                    .anyMatch(method -> BUILD.equals(method.getName()));
+                    .anyMatch(method -> BUILD_METHOD_NAME.equals(method.getName()));
             if (containBuild) {
                 builder.append("\n.build()");
             }
         }
-    }
-
-    private boolean isStaticMethod(PsiMethod psiMethod) {
-        return psiMethod.hasModifierProperty(PsiModifier.STATIC);
     }
 
     private Boolean isCursorInBuilderName(@NotNull PsiElement element) {
