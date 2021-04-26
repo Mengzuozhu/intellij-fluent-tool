@@ -18,20 +18,28 @@ import java.util.stream.Collectors;
 public class CalledMemberDialog extends ListMemberDialog<PsiMethod> {
     private static final String DEPRECATED_ANNOTATION = Deprecated.class.getCanonicalName();
     private static final String TITLE = "Select Called Methods";
-    private static final String LABEL = "Ignore Deprecated";
+    private static final String IGNORE_DEPRECATED_LABEL = "Ignore deprecated";
+    private static final String DEFAULT_VALUE_LABEL = "With default value for builder";
+    private JBCheckBox defaultValueCheckbox;
 
     public CalledMemberDialog(@NotNull Project project, List<PsiMethod> members) {
         super(project, members, TITLE);
     }
 
+    public boolean isWithDefaultValue() {
+        return defaultValueCheckbox.isSelected();
+    }
+
     @Override
     protected void customInit() {
         addComponent(getDeprecatedCheck());
+        defaultValueCheckbox = new JBCheckBox(DEFAULT_VALUE_LABEL);
+        addComponent(defaultValueCheckbox);
     }
 
     @NotNull
     private Component getDeprecatedCheck() {
-        JBCheckBox deprecatedCheck = new JBCheckBox(LABEL);
+        JBCheckBox deprecatedCheck = new JBCheckBox(IGNORE_DEPRECATED_LABEL);
         deprecatedCheck.addItemListener(e -> {
             if (e.getStateChange() == ItemEvent.SELECTED) {
                 List<PsiMethod> methods = members.stream()

@@ -26,7 +26,7 @@ import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTypesUtil;
 import com.intellij.util.IncorrectOperationException;
 import github.mengzz.fluent.tool.dialog.CalledMemberDialog;
-import github.mengzz.fluent.tool.setting.FluentToolSetting;
+import github.mengzz.fluent.tool.handler.FluentCalledHandler;
 import org.apache.commons.collections.CollectionUtils;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
@@ -43,7 +43,6 @@ import java.util.stream.Collectors;
  * @author mengzz
  */
 public class FluentCalledAction extends BaseElementAtCaretIntentionAction {
-    private static final String BUILD_METHOD_NAME = "build";
     private static final String SEMICOLON = ";";
 
     @NotNull
@@ -130,11 +129,9 @@ public class FluentCalledAction extends BaseElementAtCaretIntentionAction {
             return null;
         }
         List<PsiMethod> members = listMemberDialog.getRemainedMembers();
-        StringBuilder builder = new StringBuilder();
-        for (PsiMethod psiMethod : members) {
-            builder.append("\n.").append(psiMethod.getName()).append("()");
-        }
-        addBuildMethodIfNeed(psiClass, builder);
+        boolean withDefaultValue = listMemberDialog.isWithDefaultValue();
+        StringBuilder builder = new FluentCalledHandler()
+                .buildCalledMethod(psiClass, members, withDefaultValue);
         return builder;
     }
 
@@ -157,16 +154,6 @@ public class FluentCalledAction extends BaseElementAtCaretIntentionAction {
             builderElement = getParentOfParent(element).orElse(null);
         }
         return builderElement;
-    }
-
-    private void addBuildMethodIfNeed(PsiClass psiClass, StringBuilder builder) {
-        if (FluentToolSetting.getInstance().isAddBuildMethodIfExist()) {
-            boolean containBuild = Arrays.stream(psiClass.getMethods())
-                    .anyMatch(method -> BUILD_METHOD_NAME.equals(method.getName()));
-            if (containBuild) {
-                builder.append("\n.build()");
-            }
-        }
     }
 
     private Boolean isCursorInBuilderName(@NotNull PsiElement element) {
