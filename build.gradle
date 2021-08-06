@@ -32,6 +32,10 @@ intellij {
 }
 patchPluginXml {
     changeNotes """
+      <b>1.5</b> <br>
+      <em> ● Support default value in 'Fluent Call'</em><br>
+      <br>
+
       <b>1.4</b> <br>
       <em> ● Support annotations in 'Fluent Constructor'</em><br>
       <br>
